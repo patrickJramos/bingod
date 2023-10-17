@@ -1,8 +1,4 @@
 import Image from "next/image";
-import { drizzle } from "drizzle-orm/vercel-postgres";
-
-import {} from "drizzle-orm/pg-core";
-import { sql } from "@vercel/postgres";
 
 export default function Home() {
   return (
