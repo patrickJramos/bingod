@@ -3,7 +3,7 @@ import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import { Pool } from "pg";
 
-export const authOptions = {
+const authOptions = {
   adapter: PostgresAdapter(
     new Pool({
       database: process.env.POSTGRES_DATABASE!,
