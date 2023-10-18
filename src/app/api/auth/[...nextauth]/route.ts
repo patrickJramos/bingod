@@ -1,7 +1,20 @@
+import PostgresAdapter from "@auth/pg-adapter";
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
+import { Pool } from "pg";
 
 export const authOptions = {
+  adapter: PostgresAdapter(
+    new Pool({
+      database: process.env.POSTGRES_DATABASE!,
+      host: process.env.POSTGRES_HOST!,
+      password: process.env.POSTGRES_PASSWORD!,
+      user: process.env.POSTGRES_USER!,
+      ssl: {
+        rejectUnauthorized: true,
+      },
+    }),
+  ),
   // Configure one or more authentication providers
   providers: [
     GithubProvider({
@@ -10,7 +23,7 @@ export const authOptions = {
     }),
     // ...add more providers here
   ],
-};
+} satisfies Parameters<typeof NextAuth>[2];
 
 const handler = NextAuth(authOptions);
 
