@@ -1,6 +1,6 @@
-import { dbMigrate } from "@/db/database";
+// import { dbMigrate } from "@/db/database";
 
 export function register() {
-  console.log("registering instrumentation");
-  dbMigrate();
+  // console.log("registering instrumentation");
+  // dbMigrate();
 }
