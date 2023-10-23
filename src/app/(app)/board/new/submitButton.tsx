@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
-import { useFormStatus } from "react-dom";
+import { experimental_useFormStatus as useFormStatus } from "react-dom";
 
 export function SubmitButton(props: { children?: ReactNode }) {
   const { pending } = useFormStatus();

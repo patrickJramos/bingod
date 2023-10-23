@@ -8,7 +8,7 @@ export default function NewBoardPage() {
   return (
     <form action={createBoard}>
       <input type="text" name="name" />
-      <SubmitButton />
+      <SubmitButton>Add</SubmitButton>
     </form>
   );
 }
