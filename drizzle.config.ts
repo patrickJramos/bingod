@@ -1,16 +1,12 @@
-import type { Config } from "drizzle-kit";
+import { type Config } from "drizzle-kit";
 
-console.log(process.env);
+import { env } from "~/env.mjs";
 
 export default {
-  schema: "./src/db/tables/**/*.ts",
-  out: "./drizzle",
+  schema: "./src/server/db/schema.ts",
   driver: "pg",
   dbCredentials: {
-    database: process.env.POSTGRES_DATABASE!,
-    host: process.env.POSTGRES_HOST!,
-    password: process.env.POSTGRES_PASSWORD!,
-    user: process.env.POSTGRES_USER!,
-    ssl: true,
+    connectionString: env.DATABASE_URL,
   },
+  tablesFilter: ["bingod_*"],
 } satisfies Config;
